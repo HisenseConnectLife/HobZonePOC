@@ -57,6 +57,14 @@ namespace HobZonePOC.Views
             StrokeWidth = 5,
         };
 
+        SKPaint outlinePaint = new SKPaint
+        {
+            Style = SKPaintStyle.Stroke,
+            StrokeWidth = 5,
+            Color = SKColors.Gray,
+        };
+
+
         SKPaint textPaint = new SKPaint
         {
             Color = SKColors.Red
@@ -74,12 +82,50 @@ namespace HobZonePOC.Views
             var surface = e.Surface;
             var canvas = surface.Canvas;
             canvas.Clear(SKColors.Black);
-            DrawZone(canvas, unit, zoneInfo.Zone);
+            //DrawZone(canvas, unit, zoneInfo.Zone);
             DrawZone(canvas, unit, zoneInfo.Zone2);
             DrawZone(canvas, unit, zoneInfo.Zone3);
             DrawZone(canvas, unit, zoneInfo.Zone4);
             DrawZone(canvas, unit, zoneInfo.Zone5);
             DrawZone(canvas, unit, zoneInfo.Zone6);
+
+            DrawBridge(canvas, unit, zoneInfo.Zone, zoneInfo.Zone3);
+        }
+
+        private void DrawBridge(SKCanvas canvas, int unit, Zone zoneUp, Zone zoneDown)
+        {
+            SKRect rect = new SKRect(
+                (float)(zoneUp.X * unit - zoneUp.W * unit /2) ,
+                (float)(zoneUp.Y * unit - zoneUp.W * unit / 2),
+                    (float)(zoneUp.X * unit + zoneUp.W * unit / 2),
+                        (float)(zoneUp.Y * unit + zoneUp.W * unit / 2));
+            float startAngle = 180;
+            float sweepAngle = 180;
+
+            
+
+            //canvas.DrawOval(rect, circleBorder);
+
+            using (SKPath path = new SKPath())
+            {
+                path.AddArc(rect, startAngle, sweepAngle);
+                canvas.DrawPath(path, outlinePaint);
+            }
+            canvas.DrawLine((float)(zoneUp.X * unit - zoneUp.W * unit / 2),
+                (float)(zoneUp.Y * unit ),
+                (float)(zoneDown.X * unit - zoneDown.W * unit / 2),
+                (float)(zoneDown.Y * unit - 35), outlinePaint);
+
+            canvas.DrawLine((float)(zoneUp.X * unit + zoneUp.W * unit / 2),
+                (float)(zoneUp.Y * unit),
+                (float)(zoneDown.X * unit + zoneDown.W * unit / 2),
+                (float)(zoneDown.Y * unit - 35), outlinePaint);
+
+            string str = $"{rnd.Next(1, 100)} °C";
+            var textWidth = textPaint.MeasureText(str);
+            textPaint.TextSize = 0.9f * (zoneUp.W.Value * unit / 2) * textPaint.TextSize / textWidth;
+            canvas.DrawText(str, (zoneUp.X.Value * unit) - textPaint.MeasureText(str) / 2, zoneUp.Y.Value * unit + textPaint.TextSize / 2, textPaint);
+
         }
 
         private void DrawZone(SKCanvas canvas, int unit, Zone zone)
