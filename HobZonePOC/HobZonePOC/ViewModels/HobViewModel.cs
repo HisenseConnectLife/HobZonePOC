@@ -16,7 +16,7 @@ namespace HobZonePOC.ViewModels
         public ZoneInfo GetZoneInfo()
         {
             var assembly = typeof(HobViewModel).GetTypeInfo().Assembly;
-            Stream stream = assembly.GetManifestResourceStream("HobZonePOC.Data.zones2.json");
+            Stream stream = assembly.GetManifestResourceStream("HobZonePOC.Data.601zonelayout.json");
             using (StreamReader sr = new StreamReader(stream))
             {
                 var json = sr.ReadToEnd();

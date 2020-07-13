@@ -6,11 +6,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\201zonelayout.json" />
+    <None Remove="Data\401zonelayout.json" />
+    <None Remove="Data\403zonelayout.json" />
+    <None Remove="Data\404zonelayout.json" />
+    <None Remove="Data\501zonelayout.json" />
+    <None Remove="Data\503zonelayout.json" />
+    <None Remove="Data\601zonelayout.json" />
     <None Remove="Data\zones1.json" />
     <None Remove="Data\zones2.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\201zonelayout.json" />
+    <EmbeddedResource Include="Data\401zonelayout.json" />
+    <EmbeddedResource Include="Data\403zonelayout.json" />
+    <EmbeddedResource Include="Data\404zonelayout.json" />
+    <EmbeddedResource Include="Data\501zonelayout.json" />
+    <EmbeddedResource Include="Data\503zonelayout.json" />
+    <EmbeddedResource Include="Data\601zonelayout.json" />
     <EmbeddedResource Include="Data\zones2.json" />
     <EmbeddedResource Include="Data\zones1.json" />
   </ItemGroup>

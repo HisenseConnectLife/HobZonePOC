@@ -1,0 +1,51 @@
+{
+  "width": "70 cm",
+  "SL1": {
+    "present": "true",
+    "shape": "round",
+    "x": "14",
+    "y": "25",
+    "w": "17",
+    "h": "17"
+  },
+  "SL2": {
+    "present": "true",
+    "shape": "round",
+    "x": "34",
+    "y": "35",
+    "w": "17",
+    "h": "17"
+  },
+  "SL3": {
+    "present": "true",
+    "shape": "round",
+    "x": "34",
+    "y": "15",
+    "w": "17",
+    "h": "17"
+  },
+  "SL4": {
+    "present": "true",
+    "shape": "round",
+    "x": "57",
+    "y": "35",
+    "w": "17",
+    "h": "17"
+  },
+  "SL5": {
+    "present": "true",
+    "shape": "round",
+    "x": "57",
+    "y": "15",
+    "w": "17",
+    "h": "17"
+  },
+  "SL6": {
+    "present": "false",
+    "shape": "",
+    "x": "",
+    "y": "",
+    "w": "",
+    "h": ""
+  }
+}

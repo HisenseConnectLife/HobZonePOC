@@ -82,14 +82,14 @@ namespace HobZonePOC.Views
             var surface = e.Surface;
             var canvas = surface.Canvas;
             canvas.Clear(SKColors.Black);
-            //DrawZone(canvas, unit, zoneInfo.Zone);
+            DrawZone(canvas, unit, zoneInfo.Zone);
             DrawZone(canvas, unit, zoneInfo.Zone2);
             DrawZone(canvas, unit, zoneInfo.Zone3);
             DrawZone(canvas, unit, zoneInfo.Zone4);
             DrawZone(canvas, unit, zoneInfo.Zone5);
             DrawZone(canvas, unit, zoneInfo.Zone6);
 
-            DrawBridge(canvas, unit, zoneInfo.Zone, zoneInfo.Zone3);
+            //DrawBridge(canvas, unit, zoneInfo.Zone, zoneInfo.Zone3);
         }
 
         private void DrawBridge(SKCanvas canvas, int unit, Zone zoneUp, Zone zoneDown)
